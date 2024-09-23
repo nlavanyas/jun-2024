@@ -1,0 +1,35 @@
+pipeline {
+agent {label 'slave_1'}
+Stages{
+stage ('git checkout') {
+agent {label 'slave name'}
+steps{
+echo 'this is checkout stage'
+}
+}
+stage ('Build') {
+agent {label 'slave_1'}
+steps{
+echo 'this is Build stage'
+}
+}
+stage ('Sonar Qube') {
+agent {label 'slave_1'}
+steps{
+echo 'this is sonar scan stage'
+}
+}
+stage ('push') {
+agent {label 'slave_1'}
+steps{
+echo 'this is push stage'
+}
+}
+stage ( 'Deploy'){
+agent {label 'slave_1'}
+steps{
+echo 'Tjis is deploy stage'
+}
+}
+}
+}
